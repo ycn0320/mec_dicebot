@@ -76,7 +76,6 @@ class WebhookHandler(webapp2.RequestHandler):
         chat_id = chat['id']
 
         if not text:
-            logging.info('no text')
             return
 
         def reply(msg=None, img=None):
