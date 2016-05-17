@@ -102,7 +102,7 @@ class WebhookHandler(webapp2.RequestHandler):
             		reply('Bot enabled?')
             		setEnabled(chat_id, True)
             elif text == '/stop':
-                reply('Bot disabled')
+            		reply('Bot disabled')
                 setEnabled(chat_id, False)
             elif text == '/image':
                 img = Image.new('RGB', (512, 512))
