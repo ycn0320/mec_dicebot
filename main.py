@@ -92,12 +92,12 @@ class WebhookHandler(webapp2.RequestHandler):
                     'reply_to_message_id': str(message_id),
                 })).read()
  #           elif img:
-                resp = multipart.post_multipart(BASE_URL + 'sendPhoto', [
-                    ('chat_id', str(chat_id)),
-                    ('reply_to_message_id', str(message_id)),
-                ], [
-                    ('photo', 'image.jpg', img),
-                ])
+  #              resp = multipart.post_multipart(BASE_URL + 'sendPhoto', [
+   #                 ('chat_id', str(chat_id)),
+    #                ('reply_to_message_id', str(message_id)),
+     #           ], [
+      #              ('photo', 'image.jpg', img),
+       #         ])
             else:
                 logging.error('no msg or img specified')
                 resp = None
