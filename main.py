@@ -93,10 +93,7 @@ class WebhookHandler(webapp2.RequestHandler):
 
             logging.info('send response:')
             logging.info(resp)
-            
-        if text.startswith('!'):
-          	if text == '!주사위':
-              reply('주사위')
+
               
         if text.startswith('/'):
             if text == '/start':
