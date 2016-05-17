@@ -5,6 +5,7 @@ import random
 import urllib
 import urllib2
 
+
 # standard app engine imports
 from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
@@ -94,7 +95,8 @@ class WebhookHandler(webapp2.RequestHandler):
           if cmd_dice:
             rand = random.randint(1, cmd_dice.group(1))
             reply('DiceVal = %d' % rand)
-
+          else:
+            reply('Oops')
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
