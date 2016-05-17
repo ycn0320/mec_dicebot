@@ -99,17 +99,6 @@ class WebhookHandler(webapp2.RequestHandler):
             		randVal = random.randint(1, 100)
 								reply('DiceVal = %d' % randVal)
 
-        # CUSTOMIZE FROM HERE
-
-        elif 'who are you' in text:
-            reply('telebot starter kit, created by yukuku: https://github.com/yukuku/telebot')
-        elif 'what time' in text:
-            reply('look at the corner of your screen!')
-        else:
-            if getEnabled(chat_id):
-                reply('I got your message! (but I do not know how to answer)')
-            else:
-                logging.info('not enabled for chat_id {}'.format(chat_id))
 
 
 app = webapp2.WSGIApplication([
