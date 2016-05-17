@@ -94,6 +94,7 @@ class WebhookHandler(webapp2.RequestHandler):
             logging.info('send response:')
             logging.info(resp)
         if text.startswith('/'):
+          	if text ==
         if text.startswith('/'):
             if text == '/start':
                 reply('Bot enabled')
