@@ -21,9 +21,9 @@ import re
 TOKEN = '192794280:AAFtJK70ZC2mPRH8uqwpx1-U2OwnQ8Bbzp4'
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
-# bot co
+# bot command
 CMD_ROLL = '!주사위'
-# 봇이 응답할 명령어
+
 CMD_START     = '/start'
 CMD_STOP      = '/stop'
 CMD_HELP      = '/help'
