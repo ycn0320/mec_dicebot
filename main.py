@@ -91,7 +91,7 @@ class WebhookHandler(webapp2.RequestHandler):
                 resp = None
         
     
-        if text.startswith('/'):
+        
             if text == '/start':
                 reply('Bot enabled')
                 setEnabled(chat_id, True)
