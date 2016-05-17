@@ -94,7 +94,8 @@ class WebhookHandler(webapp2.RequestHandler):
           try:
             int(s)
             return True
-          except ValueError
+          except ValueError:
+            return False
               
         if text.startswith('/'):
           cmd_dice = re.match('/dice', text)
