@@ -87,7 +87,6 @@ class WebhookHandler(webapp2.RequestHandler):
                     'disable_web_page_preview': 'true',
                     'reply_to_message_id': str(message_id),
                 })).read()
-
             else:
                 logging.error('no msg or img specified')
                 resp = None
