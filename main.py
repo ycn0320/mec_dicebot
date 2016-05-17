@@ -10,7 +10,7 @@ from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
 import webapp2
 
-# URL, JSON, log
+# URL, JSON, log, exp
 import urllib
 import urllib2
 import json
