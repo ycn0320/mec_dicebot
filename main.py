@@ -100,7 +100,6 @@ class WebhookHandler(webapp2.RequestHandler):
 								reply('DiceVal = %d' % randVal)
 
 
-
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
     ('/updates', GetUpdatesHandler),
