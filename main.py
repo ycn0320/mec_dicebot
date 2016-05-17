@@ -76,7 +76,6 @@ class WebhookHandler(webapp2.RequestHandler):
         chat_id = chat['id']
 
         if not text:
-            logging.info('no text')
             return
 
         def reply(msg=None, img=None):
@@ -88,44 +87,12 @@ class WebhookHandler(webapp2.RequestHandler):
                     'reply_to_message_id': str(message_id),
                 })).read()
             else:
-                logging.error('no msg or img specified')
                 resp = None
-
-            logging.info('send response:')
-            logging.info(resp)
               
         if text.startswith('/'):
         		if text == '/dice':
             		randVal = random.randint(1, 100)
 								reply('DiceVal = %d' % randVal)
-            elif text == '/start':
-            		reply('Bot enabled?')
-            		setEnabled(chat_id, True)
-            elif text == '/stop':
-            		reply('Bot disabled')
-            		setEnabled(chat_id, False)
-            elif text == '/image':
-            		img = Image.new('RGB', (512, 512))
-                base = random.randint(0, 16777216)
-                pixels = [base+i*j for i in range(512) for j in range(512)]  # generate sample image
-                img.putdata(pixels)
-                output = StringIO.StringIO()
-                img.save(output, 'JPEG')
-                reply(img=output.getvalue())
-            else:
-                reply('What command?')
-
-        # CUSTOMIZE FROM HERE
-
-        elif 'who are you' in text:
-            reply('telebot starter kit, created by yukuku: https://github.com/yukuku/telebot')
-        elif 'what time' in text:
-            reply('look at the corner of your screen!')
-        else:
-            if getEnabled(chat_id):
-                reply('I got your message! (but I do not know how to answer)')
-            else:
-                logging.info('not enabled for chat_id {}'.format(chat_id))
 
 
 app = webapp2.WSGIApplication([
