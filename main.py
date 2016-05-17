@@ -93,7 +93,7 @@ class WebhookHandler(webapp2.RequestHandler):
     
         if text.startswith('/'):
           cmd_dice = re.match('/dice', text)
-          print cmd_dice.group(0)
+          reply cmd_dice.group(0)
           print cmd_dice.group(1)
           if cmd_dice and int(cmd_dice.group(1)):
             rand = random.randint(1, cmd_dice.group(1))
