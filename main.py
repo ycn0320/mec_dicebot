@@ -90,18 +90,12 @@ class WebhookHandler(webapp2.RequestHandler):
             else:
                 resp = None
         
-        def isNumber(s):
-          try:
-            int(s)
-            return True
-          except ValueError:
-            return False
-              
+    
         if text.startswith('/'):
           cmd_dice = re.match('/dice', text)
           print cmd_dice.group(0)
           print cmd_dice.group(1)
-          if cmd_dice and isNumber(cmd_dice.group(1)):
+          if cmd_dice and int(cmd_dice.group(1)):
             rand = random.randint(1, cmd_dice.group(1))
             reply('DiceVal = %d' % rand)
           else:
