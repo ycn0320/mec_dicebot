@@ -5,8 +5,6 @@ import random
 import urllib
 import urllib2
 
-
-
 # standard app engine imports
 from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
