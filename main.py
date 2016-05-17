@@ -88,11 +88,7 @@ class WebhookHandler(webapp2.RequestHandler):
                     'reply_to_message_id': str(message_id),
                 })).read()
             else:
-                logging.error('no msg or img specified')
                 resp = None
-
-            logging.info('send response:')
-            logging.info(resp)
               
         if text.startswith('/'):
         		if text == '/dice':
