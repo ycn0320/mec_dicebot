@@ -89,22 +89,23 @@ class WebhookHandler(webapp2.RequestHandler):
                 })).read()
             else:
                 resp = None
+                
+                
         
-    
-        if text.startswith('/'):
-            if text == '/start':
-                reply('Bot enabled')
-                setEnabled(chat_id, True)
-                return
-            if text == '/stop':
-                reply('Bot disabled')
-                setEnabled(chat_id, False)
-                return
-            cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
-            if cmd_dice and bool(int(cmd_dice.group(1))):
-                rand = random.randint(1, int(cmd_dice.group(1)))
-                reply('DiceVal = %d' % rand)
-                return
+        if text == '/start':
+          reply('Bot enabled')
+          setEnabled(chat_id, True)
+          return
+        if text == '/stop':
+          reply('Bot disabled')
+          setEnabled(chat_id, False)
+          return
+        if getEnabled(chat_id):
+          cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
+          if cmd_dice and bool(int(cmd_dice.group(1))):
+            rand = random.randint(1, int(cmd_dice.group(1)))
+            reply('DiceVal = %d' % rand)
+            return
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
