@@ -105,9 +105,6 @@ class WebhookHandler(webapp2.RequestHandler):
             rand = random.randint(1, int(cmd_dice.group(1)))
             reply('DiceVal = %d' % rand)
             return
-          else:
-            reply('Oops!')
-            return
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
