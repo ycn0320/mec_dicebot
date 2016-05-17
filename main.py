@@ -91,7 +91,7 @@ class WebhookHandler(webapp2.RequestHandler):
                     'disable_web_page_preview': 'true',
                     'reply_to_message_id': str(message_id),
                 })).read()
-            elif img:
+ #           elif img:
                 resp = multipart.post_multipart(BASE_URL + 'sendPhoto', [
                     ('chat_id', str(chat_id)),
                     ('reply_to_message_id', str(message_id)),
