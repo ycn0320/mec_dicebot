@@ -95,9 +95,9 @@ class WebhookHandler(webapp2.RequestHandler):
             logging.info(resp)
               
         if text.startswith('/'):
+          
         		if text == '/dice':
-              
-                  randVal = random.randint(1, 100)
+            randVal = random.randint(1, 100)
                   reply('DiceVal = %d' % randVal)
             elif text == '/start':
                 reply('Bot enabled?')
