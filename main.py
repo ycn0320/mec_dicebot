@@ -90,9 +90,9 @@ class WebhookHandler(webapp2.RequestHandler):
                 resp = None
               
         if text.startswith('/'):
-          if text == '/dice':
-            	reply(message)
-              rand = random.randint(1, 100)
+          cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
+          if cmd_dice:
+            	rand = random.randint(1, cnd_dice.group(1))
               reply('DiceVal = %d' % rand)
 
 
