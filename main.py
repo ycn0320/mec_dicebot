@@ -96,17 +96,14 @@ class WebhookHandler(webapp2.RequestHandler):
             reply('Bot enabled')
             setEnabled(chat_id, True)
             return
-          elif text == '/stop':
+          if text == '/stop':
             reply('Bot disabled')
             setEnabled(chat_id, False)
-            return
+            return          
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
-          elif cmd_dice and bool(int(cmd_dice.group(1))):
+          if cmd_dice and bool(int(cmd_dice.group(1))):
             rand = random.randint(1, int(cmd_dice.group(1)))
             reply('DiceVal = %d' % rand)
-            return
-          else:
-            reply('Oops!')
             return
 
 app = webapp2.WSGIApplication([
