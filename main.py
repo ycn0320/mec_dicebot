@@ -99,7 +99,6 @@ class WebhookHandler(webapp2.RequestHandler):
             		randVal = random.randint(1, 100)
 								reply('DiceVal = %d' % randVal)
 
-
         # CUSTOMIZE FROM HERE
 
         elif 'who are you' in text:
