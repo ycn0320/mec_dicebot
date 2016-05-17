@@ -99,7 +99,7 @@ class WebhookHandler(webapp2.RequestHandler):
             return
           else:
             reply('Oops!')
-            retn
+            return
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
