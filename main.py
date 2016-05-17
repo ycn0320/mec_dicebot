@@ -10,7 +10,7 @@ from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
 import webapp2
 
-# URL, JSON, 로그, 정규표현식 관련 라이브러리 로드
+# URL, JSON, log
 import urllib
 import urllib2
 import json
