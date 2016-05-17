@@ -5,16 +5,12 @@ import random
 import urllib
 import urllib2
 
-# for sending images
-#from PIL import Image
-#import multipart
-
 # standard app engine imports
 from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
 import webapp2
 
-TOKEN = 'YOUR_BOT_TOKEN_HERE'
+TOKEN = '192794280:AAFtJK70ZC2mPRH8uqwpx1-U2OwnQ8Bbzp4'
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
@@ -91,13 +87,6 @@ class WebhookHandler(webapp2.RequestHandler):
                     'disable_web_page_preview': 'true',
                     'reply_to_message_id': str(message_id),
                 })).read()
- #           elif img:
-  #              resp = multipart.post_multipart(BASE_URL + 'sendPhoto', [
-   #                 ('chat_id', str(chat_id)),
-    #                ('reply_to_message_id', str(message_id)),
-     #           ], [
-      #              ('photo', 'image.jpg', img),
-       #         ])
             else:
                 logging.error('no msg or img specified')
                 resp = None
