@@ -103,9 +103,9 @@ class WebhookHandler(webapp2.RequestHandler):
             		setEnabled(chat_id, True)
             elif text == '/stop':
             		reply('Bot disabled')
-                setEnabled(chat_id, False)
+            		setEnabled(chat_id, False)
             elif text == '/image':
-                img = Image.new('RGB', (512, 512))
+            		img = Image.new('RGB', (512, 512))
                 base = random.randint(0, 16777216)
                 pixels = [base+i*j for i in range(512) for j in range(512)]  # generate sample image
                 img.putdata(pixels)
