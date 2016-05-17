@@ -99,12 +99,12 @@ class WebhookHandler(webapp2.RequestHandler):
               
         if text.startswith('/'):
           cmd_dice = re.match('^' + '/dice'+ ' (.*)', text)
-          if cmd_dice and isNumber(cmd_dice.group(1)):
-            rand = random.randint(1, cmd_dice.group(1))
+          print cmd_dice.group(2)
+          if cmd_dice and isNumber(cmd_dice.group(2)):
+            rand = random.randint(1, cmd_dice.group(2))
             reply('DiceVal = %d' % rand)
           else:
-            reply(cmd_dice)
-            reply('Oops')
+            reply('Oops!')
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
