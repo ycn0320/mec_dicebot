@@ -96,7 +96,7 @@ class WebhookHandler(webapp2.RequestHandler):
             
         if text.startswith('!'):
           	if text == '!주사위':
-              re
+              reply('주사위
         if text.startswith('/'):
             if text == '/start':
                 reply('Bot enabled')
