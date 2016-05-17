@@ -100,7 +100,7 @@ class WebhookHandler(webapp2.RequestHandler):
           reply('Bot disabled')
           setEnabled(chat_id, False)
           return
-        
+        if 
             cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
             if cmd_dice and bool(int(cmd_dice.group(1))):
                 rand = random.randint(1, int(cmd_dice.group(1)))
