@@ -101,7 +101,7 @@ class WebhookHandler(webapp2.RequestHandler):
             setEnabled(chat_id, False)
             return          
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
-          elif cmd_dice and bool(int(cmd_dice.group(1))):
+          if cmd_dice and bool(int(cmd_dice.group(1))):
             rand = random.randint(1, int(cmd_dice.group(1)))
             reply('DiceVal = %d' % rand)
             return
