@@ -99,7 +99,7 @@ class WebhookHandler(webapp2.RequestHandler):
           elif text == '/stop':
             reply('Bot disabled')
             setEnabled(chat_id, False)
-            re
+            return
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
           elif cmd_dice and bool(int(cmd_dice.group(1))):
             rand = random.randint(1, int(cmd_dice.group(1)))
