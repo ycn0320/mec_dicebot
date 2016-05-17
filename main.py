@@ -42,7 +42,7 @@ CMD_ROLL = '!주사위'
  #   if no_preview:
 #        params['disable_web_page_preview'] = no_preview
  #   try:
- ##   except Exception as e: 
+ #   except Exception as e: 
  #       logging.exception(e)
 
 #def broadcast(text):
