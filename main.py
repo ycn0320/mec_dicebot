@@ -12,7 +12,7 @@ import webapp2
 
 # URL, JSON, log, exp
 import urllib
-import urllib2d
+import urllib2
 import json
 import logging
 import re
