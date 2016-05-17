@@ -22,58 +22,57 @@ TOKEN = '192794280:AAFtJK70ZC2mPRH8uqwpx1-U2OwnQ8Bbzp4'
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
 # 봇이 응답할 명령어
-CMD_ROLL = '/roll'
+CMD_ROLL = '!주사위'
 
 # 메시지 발송 관련 함수들
-def send_msg(chat_id, text, reply_to=None, no_preview=True, keyboard=None):
-    u"""send_msg: 메시지 발송
-    chat_id:    (integer) 메시지를 보낼 채팅 ID
-    text:       (string)  메시지 내용
-    reply_to:   (integer) ~메시지에 대한 답장
-    no_preview: (boolean) URL 자동 링크(미리보기) 끄기
-    keyboard:   (list)    커스텀 키보드 지정
-    """
-    params = {
-        'chat_id': str(chat_id),
-        'text': text.encode('utf-8'),
-        }
-    if reply_to:
-        params['reply_to_message_id'] = reply_to
-    if no_preview:
-        params['disable_web_page_preview'] = no_preview
-    try:
-        urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode(params)).read()
-    except Exception as e: 
-        logging.exception(e)
+#def send_msg(chat_id, text, reply_to=None, no_preview=True, keyboard=None):
+#    u"""send_msg: 메시지 발송
+#    chat_id:    (integer) 메시지를 보낼 채팅 ID
+#    text:       (string)  메시지 내용
+#    reply_to:   (integer) ~메시지에 대한 답장
+#   no_preview: (boolean) URL 자동 링크(미리보기) 끄기
+#    keyboard:   (list)    커스텀 키보드 지정
+#    """
+#    params = {
+ #       'chat_id': str(chat_id),
+ #       'text': text.encode('utf-8'),
+#        }
+#    if reply_to:
+ #       params['reply_to_message_id'] = reply_to
+ #   if no_preview:
+#        params['disable_web_page_preview'] = no_preview
+ #   try:
+ #   except Exception as e: 
+ #       logging.exception(e)
 
-def broadcast(text):
-    u"""broadcast: 봇이 켜져 있는 모든 채팅에 메시지 발송
-    text:       (string)  메시지 내용
-    """
-    for chat in get_enabled_chats():
-        send_msg(chat.key.string_id(), text)
+#def broadcast(text):
+#    u"""broadcast: 봇이 켜져 있는 모든 채팅에 메시지 발송
+#    text:       (string)  메시지 내용
+#    """
+#    for chat in get_enabled_chats():
+#        send_msg(chat.key.string_id(), text)
 		
 # 봇 명령 처리 함수들
-def cmd_start(chat_id):
-    u"""cmd_start: 봇을 활성화하고, 활성화 메시지 발송
-    chat_id: (integer) 채팅 ID
-    """
-    send_msg(chat_id, MSG_START, keyboard=CUSTOM_KEYBOARD)
+#def cmd_start(chat_id):
+#    u"""cmd_start: 봇을 활성화하고, 활성화 메시지 발송
+#    chat_id: (integer) 채팅 ID
+#    """
+#    send_msg(chat_id, MSG_START, keyboard=CUSTOM_KEYBOARD)
 	
 def process_cmds(msg):
 u"""사용자 메시지를 분석해 봇 명령을 처리
 chat_id: (integer) 채팅 ID
 text:    (string)  사용자가 보낸 메시지 내용
 """
-msg_id = msg['message_id']
-chat_id = msg['chat']['id']
-text = msg.get('text')
+#msg_id = msg['message_id']
+#chat_id = msg['chat']['id']
+#text = msg.get('text')
 
-if (not text):
-	return
-if CMD_ROLL == text:
-	cmd_start(chat_id)
-	return
+#if (not text):
+#	return
+#if CMD_ROLL == text:
+	#cmd_start(chat_id)
+	#return
 	
 	
 # 웹 요청에 대한 핸들러 정의
