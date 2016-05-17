@@ -96,6 +96,7 @@ class WebhookHandler(webapp2.RequestHandler):
               
         if text.startswith('/'):
           	if text == '/dice':
+              	randB
               	reply(random.randint(0, 16777216));                
             elif text == '/start':
                 reply('Bot enabled')
