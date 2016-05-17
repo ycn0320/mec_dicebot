@@ -4,7 +4,7 @@ import logging
 import random
 import urllib
 import urllib2
-imp
+import re
 
 # standard app engine imports
 from google.appengine.api import urlfetch
