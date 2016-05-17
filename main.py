@@ -96,8 +96,8 @@ class WebhookHandler(webapp2.RequestHandler):
               
         if text.startswith('/'):
         		if text == '/dice':
-                randVal = random.randint(1, 100)
-          	    reply('DiceVal = %d' % randVal)
+                  randVal = random.randint(1, 100)
+                   	    reply('DiceVal = %d' % randVal)
             elif text == '/start':
                 reply('Bot enabled?')
                 setEnabled(chat_id, True)
