@@ -90,6 +90,7 @@ class WebhookHandler(webapp2.RequestHandler):
                 resp = None
               
         if text.startswith('/'):
+          
           if text == '/dice':
             	reply(message)
               rand = random.randint(1, 100)
