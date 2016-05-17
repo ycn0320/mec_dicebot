@@ -96,9 +96,9 @@ class WebhookHandler(webapp2.RequestHandler):
           reply('Bot enabled')
           setEnabled(chat_id, True)
           return
-         if text == '/stop':
-                reply('Bot disabled')
-                setEnabled(chat_id, False)
+        if text == '/stop':
+          reply('Bot disabled')
+          setEnabled(chat_id, False)
                 return
             cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
             if cmd_dice and bool(int(cmd_dice.group(1))):
