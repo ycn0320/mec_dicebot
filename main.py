@@ -99,7 +99,7 @@ class WebhookHandler(webapp2.RequestHandler):
               	randVal = random.randint(0, 16777216)
               	reply('DiceVal = ' + randVal);                
             elif text == '/start':
-                reply('Bot enabled')
+                reply('Bot enabled?')
                 setEnabled(chat_id, True)
             elif text == '/stop':
                 reply('Bot disabled')
