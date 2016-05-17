@@ -41,7 +41,6 @@ def send_msg(chat_id, text, reply_to=None, no_preview=True, keyboard=None):
         params['reply_to_message_id'] = reply_to
     if no_preview:
         params['disable_web_page_preview'] = no_preview
-
     try:
         urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode(params)).read()
     except Exception as e: 
