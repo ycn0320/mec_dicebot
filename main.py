@@ -5,9 +5,7 @@ import random
 import urllib
 import urllib2
 
-# for sending images
-#from PIL import Image
-#import multipart
+
 
 # standard app engine imports
 from google.appengine.api import urlfetch
