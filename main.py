@@ -89,9 +89,12 @@ class WebhookHandler(webapp2.RequestHandler):
                 })).read()
             else:
                 resp = None
+                
+                
+            
         
     
-         if text == '/start':
+        if text == '/start':
                 reply('Bot enabled')
                 setEnabled(chat_id, True)
                 return
