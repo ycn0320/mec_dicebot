@@ -98,7 +98,7 @@ class WebhookHandler(webapp2.RequestHandler):
           	if text == '/dice':
               	reply(random.randint(0, 16777216));
                 
-            if text == '/start':
+            else if text == '/start':
                 reply('Bot enabled')
                 setEnabled(chat_id, True)
             elif text == '/stop':
