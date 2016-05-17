@@ -89,6 +89,12 @@ class WebhookHandler(webapp2.RequestHandler):
                 })).read()
             else:
                 resp = None
+        
+        def isNumber(s):
+          try:
+            int(s)
+            return True
+          except ValueError
               
         if text.startswith('/'):
           cmd_dice = re.match('/dice', text)
