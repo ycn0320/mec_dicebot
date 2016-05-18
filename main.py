@@ -119,7 +119,7 @@ class WebhookHandler(webapp2.RequestHandler):
               else:
                 reply('아...아깝네요.. 우리 [%s] 친구는 [%s]에요' % (chat_id, rand))                                
             else:
-              reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
+              reply('우리 [%s] 친구는 [%s] 이 나왔어요!' % (chat_id, rand))
 
             dicDiceResult[chat_id] = rand
             sorted(dicDiceResult.iteritems(), key=itemgetter(1), reverse=True)
