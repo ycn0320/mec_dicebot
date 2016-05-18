@@ -103,7 +103,7 @@ class WebhookHandler(webapp2.RequestHandler):
         
         if text == '/start':
           reply(u'돌려돌려 주사위~')
-          dicDiceResult.clear()
+          #dicDiceResult.clear()
           setEnabled(chat_id, True)
           return
         if text == '/stop':
@@ -115,6 +115,7 @@ class WebhookHandler(webapp2.RequestHandler):
           if cmd_dice and bool(int(cmd_dice.group(1))):
             rand = random.randint(1, int(cmd_dice.group(1)))
             reply(u'우리 친구는 [%s] 이 나왔어요!' % rand)
+            return
 #            nSize = len(dicDiceResult)
 #            if int(nSize) > 1:
 #              item = dicDiceResult.items()
@@ -128,7 +129,7 @@ class WebhookHandler(webapp2.RequestHandler):
  #           else:
 #              dicDiceResult = { username : rand }
  #             reply(u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand))
-            return
+            #return
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
