@@ -81,6 +81,8 @@ class WebhookHandler(webapp2.RequestHandler):
         chat_id = chat['id']
         chat_username = chat['username']
 
+        dicDiceResult = { '' : '' }
+        
         if not text:
             return
 
