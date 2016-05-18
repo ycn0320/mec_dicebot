@@ -110,7 +110,7 @@ class WebhookHandler(webapp2.RequestHandler):
             rand = random.randint(1, int(cmd_dice.group(1)))
             dicDiceResult[chat_id] = rand
             sorted(dicDiceResult.iteritems(), key=itemgetter(1), reverse=True)
-            reply('DiceVal = %d' % rand)
+            reply('dnfl = %d' % rand)
             return
 
 app = webapp2.WSGIApplication([
