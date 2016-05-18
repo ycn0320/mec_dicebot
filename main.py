@@ -80,7 +80,7 @@ class WebhookHandler(webapp2.RequestHandler):
         fr = message.get('from')
         chat = message['chat']
         chat_id = chat['id']
-        chat_usernam = chat['id']
+        chat_username = chat['']
 
         if not text:
             return
