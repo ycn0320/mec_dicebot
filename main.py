@@ -114,6 +114,8 @@ class WebhookHandler(webapp2.RequestHandler):
               reply('지금 1등은 [%s] 친구가 굴린 [%d] 에요' % (item[0], item[0][0]))
               if item[0][0] < rand:
                 reply('와! 축하해요~ 우리 [%s] 친구는 [%d]로 1등이에요!' % (chat_id, rand))
+              else:
+                
                 
             else:
               reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
