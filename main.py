@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 
-import StringIO
+#import StringIO
 import json
 import logging
 import random
@@ -8,7 +8,7 @@ import urllib
 import urllib2
 import re
 
-from operator import itemgetter
+#from operator import itemgetter
 
 # standard app engine imports
 from google.appengine.api import urlfetch
@@ -20,7 +20,7 @@ TOKEN = '192794280:AAFtJK70ZC2mPRH8uqwpx1-U2OwnQ8Bbzp4'
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
 
-dicDiceResult = { '' : '' }
+#dicDiceResult = { '' : '' }
 
 # ================================
 
@@ -81,9 +81,9 @@ class WebhookHandler(webapp2.RequestHandler):
         fr = message.get('from')
         chat = message['chat']
         chat_id = chat['id']
-        username = chat['username']
+      # username = fr['username']
         
-        global dicDiceResult
+      #  global dicDiceResult
         
         if not text:
             return
@@ -114,19 +114,20 @@ class WebhookHandler(webapp2.RequestHandler):
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
           if cmd_dice and bool(int(cmd_dice.group(1))):
             rand = random.randint(1, int(cmd_dice.group(1)))
-            nSize = len(dicDiceResult)
-            if int(nSize) > 1:
-              item = dicDiceResult.items()
-              reply(u'지금 1등은 [%s] 친구가 굴린 [%s] 에요' % (item[0][0], item[0][1]))
-              dicDiceResult = { username : rand }                        
-              if int(item[0][1]) < rand:
-                sorted(dicDiceResult.iteritems(), key=itemgetter(1), reverse=True)
-                reply(u'와! 축하해요~ 우리 [%s] 친구가 [%s]로 1등이에요!' % (username, rand))
-              else:
-                reply(u'아...우리 [%s] 친구는 [%s]에요, 졌으면 얌전히 따라가야겠죠?' % (username, rand))                
-            else:
-              dicDiceResult = { username : rand }
-              reply(u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand))
+            reply(u'우리 친구는 [%s] 이 나왔어요!' % rand)
+#            nSize = len(dicDiceResult)
+#            if int(nSize) > 1:
+#              item = dicDiceResult.items()
+ #             reply(u'지금 1등은 [%s] 친구가 굴린 [%s] 에요' % (item[0][0], item[0][1]))
+#              dicDiceResult = { username : rand }                        
+#              if int(item[0][1]) < rand:
+#                sorted(dicDiceResult.iteritems(), key=itemgetter(1), reverse=True)
+#                reply(u'와! 축하해요~ 우리 [%s] 친구가 [%s]로 1등이에요!' % (username, rand))
+#              else:
+#                reply(u'아...우리 [%s] 친구는 [%s]에요, 졌으면 얌전히 따라가야겠죠?' % (username, rand))                
+ #           else:
+#              dicDiceResult = { username : rand }
+ #             reply(u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand))
             return
 
 app = webapp2.WSGIApplication([
