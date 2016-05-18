@@ -102,7 +102,7 @@ class WebhookHandler(webapp2.RequestHandler):
                 
         
         if text == '/start':
-          reply(u'돌려돌려 주사위')
+          reply(u'돌려돌려 주사위!')
           #dicDiceResult.clear()
           setEnabled(chat_id, True)
           return
