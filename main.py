@@ -6,6 +6,8 @@ import urllib
 import urllib2
 import re
 
+from operator import itemgetter
+
 # standard app engine imports
 from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
@@ -15,6 +17,7 @@ TOKEN = '192794280:AAFtJK70ZC2mPRH8uqwpx1-U2OwnQ8Bbzp4'
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
+dicDiceResult = { '' : '' }
 
 # ================================
 
@@ -93,18 +96,32 @@ class WebhookHandler(webapp2.RequestHandler):
                 
         
         if text == '/start':
-          reply('Bot enabled')
+          reply('돌려돌려 주사위~')
+          dicDiceResult.clear()
           setEnabled(chat_id, True)
           return
         if text == '/stop':
-          reply('Bot disabled')
+          reply('보고 또 보고, 매일 또 보기 약속~')
           setEnabled(chat_id, False)
           return
         if getEnabled(chat_id):
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
           if cmd_dice and bool(int(cmd_dice.group(1))):
             rand = random.randint(1, int(cmd_dice.group(1)))
-            reply('DiceVal = %d' % rand)
+
+            if len(dicRiceResult) > 1:
+              item = dicRiceResult.items()
+              reply('지금 1등은 [%s] 친구가 굴린 [%d] 에요' % (item[0], item[0][0]))
+              if item[0][0] < rand:
+                reply('와! 축하해요~ 우리 [%s] 친구가 [%d]로 1등이에요!' % (chat_id, rand))
+              else:
+                reply('아...아깝네요.. 우리 [%s] 친구는 [%d]에요' % (chat_id, rand))                                
+            else:
+              reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
+
+            dicDiceResult[chat_id] = rand
+            sorted(dicDiceResult.iteritems(), key=itemgetter(1), reverse=True)
+            
             return
 
 app = webapp2.WSGIApplication([
