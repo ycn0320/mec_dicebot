@@ -79,7 +79,7 @@ class WebhookHandler(webapp2.RequestHandler):
         fr = message.get('from')
         chat = message['chat']
         chat_id = chat['id']
-        chat_username = chat['username']
+        chat_username = message.get('message_id')
 
         dicDiceResult = { '' : '' }
         
