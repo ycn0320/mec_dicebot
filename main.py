@@ -84,6 +84,7 @@ class WebhookHandler(webapp2.RequestHandler):
         username = fr['username']
         
         global dicDiceResult
+        
         if not text:
             return
 
