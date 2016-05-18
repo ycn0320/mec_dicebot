@@ -123,10 +123,8 @@ class WebhookHandler(webapp2.RequestHandler):
             else:
               reply(u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand))
               dicDiceResult = { username : rand }
-              
+         
 
-            dicDiceResult = { username : rand }
-            sorted(dicDiceResult.iteritems(), key=itemgetter(1), reverse=True)
             
             return
 
