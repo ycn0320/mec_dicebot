@@ -15,7 +15,7 @@ TOKEN = '192794280:AAFtJK70ZC2mPRH8uqwpx1-U2OwnQ8Bbzp4'
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
-dicDiceResult 
+dicDiceResult = { '' : '' }
 
 # ================================
 
