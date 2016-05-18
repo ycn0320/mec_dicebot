@@ -94,7 +94,7 @@ class WebhookHandler(webapp2.RequestHandler):
                   'chat_id': str(chat_id),
                   'text': msg.encode('utf-8'),
                   'disable_web_page_preview': 'true',
-                  'reply_to_message_id': str(message_id),                })).read()
+                  'reply_to_message_id': str(message_id),})).read()
             else:
                 resp = None
         
