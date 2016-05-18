@@ -8,7 +8,7 @@ import urllib
 import urllib2
 import re
 
-from operator import itemgetter
+#from operator import itemgetter
 
 # standard app engine imports
 from google.appengine.api import urlfetch
