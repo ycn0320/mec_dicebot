@@ -94,7 +94,7 @@ class WebhookHandler(webapp2.RequestHandler):
                 
         
         if text == '/start':
-          reply('Bot enabled')
+          reply('돌려돌려 줏')
           dicDiceResult.clear()
           setEnabled(chat_id, True)
           return
