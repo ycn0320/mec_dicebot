@@ -116,7 +116,7 @@ class WebhookHandler(webapp2.RequestHandler):
             rand = random.randint(1, int(cmd_dice.group(1)))
             nSize = len(dicDiceResult)
 
-            if len(dicDiceResult.keys()) > 1:
+            if nSize > 1:
               item = dicDiceResult.items()
               reply(u'지금 1등은 [%s] 친구가 굴린 [%s] 에요' % (item[0][0], item[0][1]))
               dicDiceResult = { username : rand }                        
