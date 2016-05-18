@@ -115,7 +115,7 @@ class WebhookHandler(webapp2.RequestHandler):
           if cmd_dice and bool(int(cmd_dice.group(1))):
             rand = random.randint(1, int(cmd_dice.group(1)))
             reply(u'우리 친구는 [%s] 이 나왔어요!' % rand)
-            
+            return
 #            nSize = len(dicDiceResult)
 #            if int(nSize) > 1:
 #              item = dicDiceResult.items()
