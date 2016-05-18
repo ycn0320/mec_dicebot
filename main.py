@@ -98,9 +98,9 @@ class WebhookHandler(webapp2.RequestHandler):
                 })).read()
             else:
                 resp = None
-                
-                
-                
+        
+         if text.startswith('/'):
+                    
         
         if text == '/start':
           reply(u'돌려돌려 주사위!')
