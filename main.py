@@ -110,6 +110,7 @@ class WebhookHandler(webapp2.RequestHandler):
             rand = random.randint(1, int(cmd_dice.group(1)))
 
             if len(dicRiceResult) > 1:
+              
               reply('지금 1등은 [%s] 친구 [%d] 이 나왔어요!' % (chat_id, rand))
               reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
             else
