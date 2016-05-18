@@ -115,8 +115,7 @@ class WebhookHandler(webapp2.RequestHandler):
           if cmd_dice and bool(int(cmd_dice.group(1))):
             rand = random.randint(1, int(cmd_dice.group(1)))
             nSize = len(dicDiceResult)
-
-            if nSize > 1:
+            if int(nSize) > 1:
               item = dicDiceResult.items()
               reply(u'지금 1등은 [%s] 친구가 굴린 [%s] 에요' % (item[0][0], item[0][1]))
               dicDiceResult = { username : rand }                        
@@ -126,8 +125,8 @@ class WebhookHandler(webapp2.RequestHandler):
               else:
                 reply(u'아...우리 [%s] 친구는 [%s]에요, 졌으면 얌전히 따라가야겠죠?' % (username, rand))                
             else:
+              dicDiceResult = { username : rand }
               reply(u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand))
-              dicDiceResult = { username : rand }            
             return
 
 app = webapp2.WSGIApplication([
