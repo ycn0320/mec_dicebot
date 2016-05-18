@@ -101,7 +101,7 @@ class WebhookHandler(webapp2.RequestHandler):
           setEnabled(chat_id, True)
           return
         if text == '/stop':
-          reply('Bot disabled')
+          reply('e')
           setEnabled(chat_id, False)
           return
         if getEnabled(chat_id):
