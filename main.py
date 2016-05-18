@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 
-import StringIO
+#import StringIO
 import json
 import logging
 import random
