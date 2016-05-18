@@ -116,9 +116,9 @@ class WebhookHandler(webapp2.RequestHandler):
             if len(dicDiceResult) > 1:
               item = dicDiceResult.items()
               reply(u'지금 1등은 [%s] 친구가 굴린 [%s] 에요' % (item[0][0], item[0][1]))
-              dicDiceResult = { username : rand }
-                        
+              dicDiceResult = { username : rand }                        
               if int(item[0][1]) < rand:
+                sorted(dicDiceResult.iteritems(), key=itemgetter(1), reverse=True)    
                 reply(u'와! 축하해요~ 우리 [%s] 친구가 [%s]로 1등이에요!' % (username, rand))
               else:
                 reply(u'아...우리 [%s] 친구는 [%s]에요, 졌으면 얌전히 따라가야겠죠?' % (username, rand))                
