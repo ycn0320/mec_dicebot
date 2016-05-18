@@ -111,7 +111,7 @@ class WebhookHandler(webapp2.RequestHandler):
 
             if len(dicRiceResult) > 1:
               item = dicRiceResult.items()
-              reply('지금 1등은 [%s] 친구 [%d] 이 나왔어요!' % (item[0], item[0][0]))
+              reply('지금 1등은 [%s] 친구rk  [%d] 이 나왔어요!' % (item[0], item[0][0]))
               reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
             else
             	reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
