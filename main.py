@@ -109,7 +109,7 @@ class WebhookHandler(webapp2.RequestHandler):
           if cmd_dice and bool(int(cmd_dice.group(1))):
             rand = random.randint(1, int(cmd_dice.group(1)))
             dicDiceResult[chat_id] = rand
-            if len
+            if len(dicRiceResult
             sorted(dicDiceResult.iteritems(), key=itemgetter(1), reverse=True)
             reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
             return
