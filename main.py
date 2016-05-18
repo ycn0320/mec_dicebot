@@ -112,6 +112,7 @@ class WebhookHandler(webapp2.RequestHandler):
           return
         if getEnabled(chat_id):
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
+          
           if cmd_dice and bool(int(cmd_dice.group(1))):
             rand = random.randint(1, int(cmd_dice.group(1)))
             reply(u'우리 친구는 [%s] 이 나왔어요!' % rand)
