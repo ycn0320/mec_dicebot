@@ -81,9 +81,7 @@ class WebhookHandler(webapp2.RequestHandler):
         fr = message.get('from')
         chat = message['chat']
         chat_id = chat['id']
-        if int(chat_id) > 0:
-          username = fr['username']
-
+        username = fr['username']
         
         global dicDiceResult
         
