@@ -106,7 +106,7 @@ class WebhookHandler(webapp2.RequestHandler):
             setEnabled(chat_id, True)
             return
           if text == '/stop':
-            reply(u'보고 또 보고, 매일 또 보기 약속!')
+            reply(u'see you later!')
             setEnabled(chat_id, False)
             return
           if getEnabled(chat_id):
