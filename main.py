@@ -88,7 +88,7 @@ class WebhookHandler(webapp2.RequestHandler):
         if not text:
             return
 
-        def reply(msg=None, img=None):
+        def reply(msg=None):
             if msg:
                 resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({
                     'chat_id': str(chat_id),
