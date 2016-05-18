@@ -113,7 +113,7 @@ class WebhookHandler(webapp2.RequestHandler):
             if len(dicRiceResult) > 1:
               reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
             else
-            	  reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
+            	reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
             
             return
 
