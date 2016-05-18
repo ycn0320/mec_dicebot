@@ -108,8 +108,8 @@ class WebhookHandler(webapp2.RequestHandler):
             reply(u'보고 또 보고, 매일 또 보기 약속!')
             setEnabled(chat_id, False)
             return
-              if getEnabled(chat_id):
-              cmd_dice = re.match('^' + '/dice' + ' (.*)', text)                    
+          if getEnabled(chat_id):
+            cmd_dice = re.match('^' + '/dice' + ' (.*)', text)    
               if cmd_dice and bool(abs(int(cmd_dice.group(1)))):
                 rand = random.randint(1, abs(int(cmd_dice.group(1))))
                 reply(u'우리 친구는 [%s] 이 나왔어요!' % rand)
