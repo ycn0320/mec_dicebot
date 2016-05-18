@@ -101,7 +101,7 @@ class WebhookHandler(webapp2.RequestHandler):
           setEnabled(chat_id, True)
           return
         if text == '/stop':
-          reply('다음에')
+          reply('보고 또보고')
           setEnabled(chat_id, False)
           return
         if getEnabled(chat_id):
