@@ -1,4 +1,4 @@
-#-*- coding: euc-kr -*-
+#-*- coding: utf-8 -*-
 
 import StringIO
 import json
@@ -88,7 +88,7 @@ class WebhookHandler(webapp2.RequestHandler):
             if msg:
                 resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({
                     'chat_id': str(chat_id),
-                    'text': msg.encode('euc-kr'),
+                    'text': msg.encode('utf-8'),
                     'disable_web_page_preview': 'true',
                     'reply_to_message_id': str(message_id),
                 })).read()
@@ -98,12 +98,12 @@ class WebhookHandler(webapp2.RequestHandler):
                 
         
         if text == '/start':
-          reply('돌려돌려 주사위~')
+          reply(u'돌려돌려 주사위~')
           dicDiceResult.clear()
           setEnabled(chat_id, True)
           return
         if text == '/stop':
-          reply('보고 또 보고, 매일 또 보기 약속~')
+          reply(u'보고 또 보고, 매일 또 보기 약속~')
           setEnabled(chat_id, False)
           return
         if getEnabled(chat_id):
@@ -113,13 +113,13 @@ class WebhookHandler(webapp2.RequestHandler):
 
             if len(dicRiceResult) > 1:
               item = dicRiceResult.items()
-              reply('지금 1등은 [%s] 친구가 굴린 [%s] 에요' % (item[0], item[0][0]))
+              reply(u'지금 1등은 [%s] 친구가 굴린 [%s] 에요' % (item[0], item[0][0]))
               if item[0][0] < rand:
-                reply('와! 축하해요~ 우리 [%s] 친구가 [%s]로 1등이에요!' % (chat_id, rand))
+                reply(u'와! 축하해요~ 우리 [%s] 친구가 [%s]로 1등이에요!' % (chat_id, rand))
               else:
-                reply('아...아깝네요.. 우리 [%s] 친구는 [%s]에요' % (chat_id, rand))                                
+                reply(u'아...아깝네요.. 우리 [%s] 친구는 [%s]에요' % (chat_id, rand))                                
             else:
-              reply('우리 [%s] 친구는 [%s] 이 나왔어요!' % (chat_id, rand))
+              reply(u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (chat_id, rand))
 
             dicDiceResult[chat_id] = rand
             sorted(dicDiceResult.iteritems(), key=itemgetter(1), reverse=True)
