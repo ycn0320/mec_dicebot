@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+#-*- coding: euc-kr -*-
 
 import StringIO
 import json
