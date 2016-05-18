@@ -112,7 +112,9 @@ class WebhookHandler(webapp2.RequestHandler):
             sorted(dicDiceResult.iteritems(), key=itemgetter(1), reverse=True)
             if len(dicRiceResult) > 1:
               reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
-            else 
+            else
+            	  reply('우리 [%s] 친구는 [%d] 이 나왔어요!' % (chat_id, rand))
+            
             return
 
 app = webapp2.WSGIApplication([
