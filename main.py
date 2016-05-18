@@ -128,9 +128,7 @@ class WebhookHandler(webapp2.RequestHandler):
               dicDiceResult = { username : rand }
               reply(u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand))
               
-               
-        
-            return
+               return
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
