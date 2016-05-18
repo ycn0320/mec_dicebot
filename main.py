@@ -80,6 +80,7 @@ class WebhookHandler(webapp2.RequestHandler):
         fr = message.get('from')
         chat = message['chat']
         chat_id = chat['id']
+        chat_username = chat['username']
 
         if not text:
             return
@@ -115,13 +116,13 @@ class WebhookHandler(webapp2.RequestHandler):
               item = dicDiceResult.items()
               reply(u'지금 1등은 [%s] 친구가 굴린 [%s] 에요' % (item[0], item[0][0]))
               if item[0][0] < rand:
-                reply(u'와! 축하해요~ 우리 [%s] 친구가 [%s]로 1등이에요!' % (chat, rand))
+                reply(u'와! 축하해요~ 우리 [%s] 친구가 [%s]로 1등이에요!' % (chat_username, rand))
               else:
-                reply(u'아...아깝네요.. 우리 [%s] 친구는 [%s]에요' % (chat, rand))                                
+                reply(u'아...아깝네요.. 우리 [%s] 친구는 [%s]에요' % (chat_username, rand))                                
             else:
-              reply(u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (chat, rand))
+              reply(u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (chat_username, rand))
 
-            dicDiceResult[chat] = rand
+            dicDiceResult = { chat_username : rand }
             sorted(dicDiceResult.iteritems(), key=itemgetter(1), reverse=True)
             
             return
