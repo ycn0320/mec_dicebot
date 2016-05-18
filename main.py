@@ -122,6 +122,7 @@ class WebhookHandler(webapp2.RequestHandler):
                 reply(u'아...아깝네요.. 우리 [%s] 친구는 [%s]에요' % (username, rand))                                
             else:
               reply(u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand))
+              dicDiceResult = { username : rand }
               
 
             dicDiceResult = { username : rand }
