@@ -85,9 +85,8 @@ class WebhookHandler(webapp2.RequestHandler):
         text = message.get('text')
         chat = message['chat']
         chat_id = chat['id']
-        try:
-          #username = message['from']['username']
-          username = chat['title']
+        try:          
+          username = message['from']['last_name'] + message['from']['first_name']
         except Exception as e:
           username = u'멍청이'
 
