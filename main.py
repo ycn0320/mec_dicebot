@@ -81,12 +81,10 @@ class WebhookHandler(webapp2.RequestHandler):
         logging.info(body)
         self.response.write(json.dumps(body))
 
-
         message = body['message']
         message_id = message.get('message_id')
-        date = message.get('date')
         text = message.get('text')
-        fr = message.get('from')
+
         chat = message['chat']
         chat_id = chat['id']
       # username = fr['username']
