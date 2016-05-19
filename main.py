@@ -42,6 +42,14 @@ def getEnabled(chat_id):
         return es.enabled
     return False
 
+  
+def reply(chat_id, text):
+  params = {
+        'chat_id': str(chat_id),
+        'text': msg.encode('utf-8'),
+        }
+  urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode(params)).read()
+
 
 # ================================
 
@@ -87,32 +95,21 @@ class WebhookHandler(webapp2.RequestHandler):
         
         if not text:
             return
-
-        def reply(msg):
-            if msg:
-              resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({
-                'chat_id': str(chat_id),
-                'text': msg.encode('utf-8'),
-                'disable_web_page_preview': 'true',
-                'reply_to_message_id': str(message_id),
-              })).read()
-            else:
-                resp = None
         
         if text.startswith('/'):
           if text == '/start':
-            reply(u'rolling rolling!')
+            reply(chat_id, u'굴려 굴려 주사위!')
             setEnabled(chat_id, True)
             return
           if text == '/stop':
-            reply(u'see you later!')
+            reply(chat_id, u'보고 또 보고, 매일 또 보기 약속!')
             setEnabled(chat_id, False)
             return
           if getEnabled(chat_id):
             cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
             if cmd_dice and bool(abs(int(cmd_dice.group(1)))):
               rand = random.randint(1, abs(int(cmd_dice.group(1))))
-              reply(u'우리 친구는 [%s] 이 나왔어요!' % rand)
+              reply(chat_id, u'우리 친구는 [%s] 이 나왔어요!' % rand)
               return
 #            nSize = len(dicDiceResult)
 #            if int(nSize) > 1:
