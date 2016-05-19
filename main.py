@@ -45,7 +45,8 @@ def reply(chat_id, text):
         'text': text.encode('utf-8'),
         }
   try:
-      urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode(params)).read()
+    urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode(params)).read()
+  
 
 
 # ================================
