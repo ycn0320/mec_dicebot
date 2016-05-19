@@ -24,7 +24,7 @@ BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
 class EnableStatus(ndb.Model):
     # key name: str(chat_id)
-    enabled = ndb.BooleanProperty(indexed=False, default=False)
+    enabled = ndb.BooleanProperty(required=True, indexed=True, default=False,)
 
 
 # ================================
