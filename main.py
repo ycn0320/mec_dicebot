@@ -109,7 +109,7 @@ class WebhookHandler(webapp2.RequestHandler):
           return
         #if getEnabled(chat_id):
         if text.startswith('!'):
-          cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
+          cmd_dice = re.match(u'^' + '/dice' + ' (.*)', text)
           try:
             inputVal = int(cmd_dice.group(1))
             if cmd_dice:
