@@ -20,13 +20,11 @@ TOKEN = '192794280:AAFtJK70ZC2mPRH8uqwpx1-U2OwnQ8Bbzp4'
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
 
-#dicDiceResult = { '' : '' }
-
 # ================================
 
 class EnableStatus(ndb.Model):
     # key name: str(chat_id)
-    enabled = ndb.BooleanProperty(indexed=False, default=False)
+    enabled = ndb.BooleanProperty(required=True, indexed=True, default=False,)
 
 
 # ================================
@@ -85,6 +83,7 @@ class WebhookHandler(webapp2.RequestHandler):
         message = body['message']
         message_id = message.get('message_id')
         text = message.get('text')
+        chat = message['chat']
         chat_id = chat['id']
 
         if not text:
