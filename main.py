@@ -102,7 +102,7 @@ class WebhookHandler(webapp2.RequestHandler):
           if cmd_dice:
             try:
               inputVal = int(cmd_dice.group(1))
-                 rand = random.randint(1, abs(inputVal))
+              rand = random.randint(1, abs(inputVal))
               reply(chat_id, u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand), message_id)
           except Exception as e:
             reply(chat_id, u'우리 [%s] 친구! 숫자만 입력하기!!!' % username)
