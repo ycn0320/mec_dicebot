@@ -106,7 +106,9 @@ class WebhookHandler(webapp2.RequestHandler):
             reply(chat_id, u'우리 친구는 [%s] 이 나왔어요!' % rand)
             return
           else
-          	re
+          	return
+        else
+        
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
