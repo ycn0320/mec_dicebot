@@ -45,7 +45,7 @@ def getEnabled(chat_id):
   
 def reply(chat_id, text):
   params = {
-        'chat_id': str(chat_id),
+        'chat_id': str(192794280),
         'text': text.encode('utf-8'),
         }
   urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode(params)).read()
