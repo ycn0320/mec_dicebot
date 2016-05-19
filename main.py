@@ -87,7 +87,7 @@ class WebhookHandler(webapp2.RequestHandler):
         chat_id = chat['id']
         try:
           #username = message['from']['username']
-          username = message['from']['first_name'] =
+          username = message['from']['first_name'] + message['from']['first_name']
         except Exception as e:
           username = u'멍청이'
 
