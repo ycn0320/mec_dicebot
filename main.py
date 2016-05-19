@@ -105,7 +105,8 @@ class WebhookHandler(webapp2.RequestHandler):
             rand = random.randint(1, abs(int(cmd_dice.group(1))))
             reply(chat_id, u'우리 친구는 [%s] 이 나왔어요!' % rand)
             return
-          
+          else
+          	re
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
