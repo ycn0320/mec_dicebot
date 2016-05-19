@@ -88,7 +88,7 @@ class WebhookHandler(webapp2.RequestHandler):
         try:
           username = message['from']['username']
         except Exception as e:
-          username = 
+          username = u'아이디 만
 
         if not text:
             return
