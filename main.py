@@ -43,7 +43,7 @@ def getEnabled(chat_id):
     return False
 
   
-def reply(chat_id, text, reply_to=None):
+def reply(chat_id, text):
   params = {
         'chat_id': str(chat_id),
         'text': msg.encode('utf-8'),
