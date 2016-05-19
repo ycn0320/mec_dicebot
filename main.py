@@ -92,7 +92,7 @@ class WebhookHandler(webapp2.RequestHandler):
         try:          
           username = message['from']['last_name'] + message['from']['first_name']
         except Exception as e:
-          username = u'멍청이'
+          username = message['from']['first_name']
 
         if not text:
             return
