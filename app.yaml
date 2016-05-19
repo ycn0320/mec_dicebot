@@ -5,7 +5,7 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: /set-webhook
+- url: /set_webhook
   login: admin
   script: main.app
 - url: .*
