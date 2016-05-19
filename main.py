@@ -8,7 +8,9 @@ import urllib
 import urllib2
 import re
 
-#from operator import itemgetter
+import telegram
+from telegram.ext import Updater
+from telegram import TelegramError
 
 # standard app engine imports
 from google.appengine.api import urlfetch
