@@ -107,8 +107,9 @@ class WebhookHandler(webapp2.RequestHandler):
             return
           else
           	return
-        else
-        
+        else:
+          return
+        	
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
