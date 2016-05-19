@@ -86,8 +86,7 @@ class WebhookHandler(webapp2.RequestHandler):
         chat = message['chat']
         chat_id = chat['id']
         try:
-          
-        username = message['from']['username']
+          username = message['from']['username']
 
         if not text:
             return
