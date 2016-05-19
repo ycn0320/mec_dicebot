@@ -108,6 +108,7 @@ class WebhookHandler(webapp2.RequestHandler):
           try:
             inputVal = abs(int(cmd_dice.group(1)))
           except Exception as e:
+            reply(chat_id, u'보고 또 보고, 매일 또 보기 약속!')
             
           if cmd_dice and bool(abs(int(cmd_dice.group(1)))):
             rand = random.randint(1, abs(int(cmd_dice.group(1))))
