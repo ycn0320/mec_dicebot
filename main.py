@@ -52,10 +52,7 @@ def reply(chat_id, text, reply_to=None):
         params['reply_to_message_id'] = reply_to
       
   urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode(params)).read()
-            if msg:
-              resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({ 'chat_id': str(chat_id), 'text': msg.encode('utf-8'), 'disable_web_page_preview': 'true', 'reply_to_message_id': str(message_id),})).read()
-            else:
-                resp = None
+
 
 # ================================
 
