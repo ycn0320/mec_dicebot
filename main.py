@@ -97,17 +97,7 @@ class WebhookHandler(webapp2.RequestHandler):
         if not text:
             return
         
-        if text == '/start':
-          reply(chat_id, u'굴려 굴려 주사위!')
-          setEnabled(chat_id, True)
-          return
-        if (not getEnabled(chat_id)):
-          return
-        if text == '/stop':
-          reply(chat_id, u'보고 또 보고, 매일 또 보기 약속!')
-          setEnabled(chat_id, False)
-          return
-        #if getEnabled(chat_id):
+
         if text.startswith('/'):
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
           try:
