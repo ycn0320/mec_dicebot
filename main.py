@@ -81,7 +81,7 @@ class WebhookHandler(webapp2.RequestHandler):
         logging.info(body)
         self.response.write(json.dumps(body))
 
-        update_id = body['update_id']
+
         message = body['message']
         message_id = message.get('message_id')
         date = message.get('date')
