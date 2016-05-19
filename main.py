@@ -112,7 +112,6 @@ class WebhookHandler(webapp2.RequestHandler):
               reply(chat_id, u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand))
           except Exception as e:
             reply(chat_id, u'숫자만 입력해줘잉')
-  
 
           return
 
