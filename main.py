@@ -45,7 +45,8 @@ def reply(chat_id, text, reply_to=None):
         'text': text.encode('utf-8'),
         }
   
-  
+  if reply_to:
+    
   'reply_to_message_id': str(message_id),
     
   try:
