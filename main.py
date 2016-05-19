@@ -88,7 +88,7 @@ class WebhookHandler(webapp2.RequestHandler):
         try:
           username = message['from']['username']
         except Exception as e:
-          logging.exception(e)
+          username = u'멍청이'
 
         if not text:
             return
