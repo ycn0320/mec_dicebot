@@ -108,7 +108,7 @@ class WebhookHandler(webapp2.RequestHandler):
           setEnabled(chat_id, False)
           return
         #if getEnabled(chat_id):
-        if text.startswith('!'):
+        if text.startswith(ㅕ'!'):
           cmd_dice = re.match('^' + u'!주사위' + ' (.*)', text)
           try:
             inputVal = int(cmd_dice.group(1))
