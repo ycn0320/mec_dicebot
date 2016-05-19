@@ -42,6 +42,12 @@ def getEnabled(chat_id):
         return es.enabled
     return False
 
+  
+        def reply(msg):
+            if msg:
+              resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({ 'chat_id': str(chat_id), 'text': msg.encode('utf-8'), 'disable_web_page_preview': 'true', 'reply_to_message_id': str(message_id),})).read()
+            else:
+                resp = None
 
 # ================================
 
@@ -87,7 +93,6 @@ class WebhookHandler(webapp2.RequestHandler):
         
         if not text:
             return
-
         
         if text.startswith('/'):
           if text == '/start':
