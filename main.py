@@ -44,8 +44,10 @@ def reply(chat_id, text):
         'chat_id': str(chat_id),
         'text': text.encode('utf-8'),
         }
-  result = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode(params))
-  result.read()
+  try:
+    urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode(params)).read()
+  except Exception as e:
+    logging.exception(e)
 
 
 # ================================
