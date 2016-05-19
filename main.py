@@ -100,11 +100,11 @@ class WebhookHandler(webapp2.RequestHandler):
         
         if text.startswith('/'):
           if text == '/start':
-            reply(chat_id,u'rolling rolling!')
+            reply(chat_id, u'rolling rolling!')
             setEnabled(chat_id, True)
             return
           if text == '/stop':
-            reply(u'see you later!')
+            reply(chat_id, u'see you later!')
             setEnabled(chat_id, False)
             return
           if getEnabled(chat_id):
