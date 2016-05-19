@@ -97,7 +97,6 @@ class WebhookHandler(webapp2.RequestHandler):
         if not text:
             return
         
-
         if text.startswith('/'):
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
           try:
