@@ -39,11 +39,15 @@ def getEnabled(chat_id):
     return False
 
   
-def reply(chat_id, text):
+def reply(chat_id, text, reply_to=None):
   params = {
         'chat_id': str(chat_id),
         'text': text.encode('utf-8'),
         }
+  
+  if reply_to:
+    params['reply_to_message_id'] = reply_to
+      
   try:
     urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode(params)).read()
   except Exception as e:
@@ -88,7 +92,7 @@ class WebhookHandler(webapp2.RequestHandler):
         try:          
           username = message['from']['last_name'] + message['from']['first_name']
         except Exception as e:
-          username = u'멍청이'
+          username = message['from']['first_name']
 
         if not text:
             return
@@ -109,7 +113,7 @@ class WebhookHandler(webapp2.RequestHandler):
             inputVal = int(cmd_dice.group(1))
             if cmd_dice:
               rand = random.randint(1, abs(inputVal))
-              reply(chat_id, u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand))
+              reply(chat_id, u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand), message_id)
           except Exception as e:
             reply(chat_id, u'숫자만 입력해줘잉')
 
