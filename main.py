@@ -107,7 +107,7 @@ class WebhookHandler(webapp2.RequestHandler):
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
           try:
             inputVal = int(cmd_dice.group(1))
-            if cmd_dice and bool( abs(int(inputVal)) ):
+            if cmd_dice:
               rand = random.randint(1, abs(inputVal))
               reply(chat_id, u'우리 [%s] 친구는 [%s] 이 나왔어요!' % (username, rand))
           except Exception as e:
