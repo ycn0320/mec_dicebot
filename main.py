@@ -107,7 +107,7 @@ class WebhookHandler(webapp2.RequestHandler):
           reply(chat_id, u'보고 또 보고, 매일 또 보기 약속!')
           setEnabled(chat_id, False)
           return
-        if getEnabled(chat_id):
+        #if getEnabled(chat_id):
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
           try:
             inputVal = int(cmd_dice.group(1))
