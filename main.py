@@ -103,7 +103,7 @@ class WebhookHandler(webapp2.RequestHandler):
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
           if cmd_dice and bool(abs(int(cmd_dice.group(1)))):
             rand = random.randint(1, abs(int(cmd_dice.group(1))))
-            reply(chat_id, u'우리 [친구는 [%s] 이 나왔어요!' % rand)
+            reply(chat_id, u'우리 [%s] 친구는 [%s] 이 나왔어요!' % rand)
           return
 
         	
