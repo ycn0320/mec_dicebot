@@ -8,10 +8,6 @@ import urllib
 import urllib2
 import re
 
-import telegram
-from telegram.ext import Updater
-from telegram import TelegramError
-
 # standard app engine imports
 from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
