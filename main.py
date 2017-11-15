@@ -53,6 +53,16 @@ def reply(chat_id, text, reply_to=None):
   except Exception as e:
     logging.exception(e)
 
+def chat(chat_id, text):
+  params = {
+        'chat_id': str(chat_ud),
+        'text': text.encode('utf-8'),
+        }
+  try:
+    urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode(params)).read()
+  except Exception as e:
+    logging.exception(e)
+
 
 # ================================
 
@@ -97,6 +107,13 @@ class WebhookHandler(webapp2.RequestHandler):
         if not text:
             return
         
+        if chat_id  == 'siksen':
+          if text.find('?') or text.find(u'까'):
+              chat(chat_id, u'X')
+          else:
+              chat(chat_id, u'ㅗ')
+          return
+    
         if text.startswith('/'):
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
           if cmd_dice:
