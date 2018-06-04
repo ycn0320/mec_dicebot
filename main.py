@@ -106,14 +106,7 @@ class WebhookHandler(webapp2.RequestHandler):
 
         if not text:
             return
-        
-        if chat_id  == 'siksen':
-          if text.find('?') or text.find(u'까'):
-              chat(chat_id, u'X')
-          else:
-              chat(chat_id, u'ㅗ')
-          return
-    
+          
         if text.startswith('/'):
           cmd_dice = re.match('^' + '/dice' + ' (.*)', text)
           if cmd_dice:
